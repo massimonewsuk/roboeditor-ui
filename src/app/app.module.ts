@@ -1,16 +1,21 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
 
-import { AppComponent } from './app.component';
+import { AppComponent } from "./app.component";
+import { HttpModule } from "@angular/http";
+import { AnalyseService } from "./analyse.service";
+import { AnalyseServiceStub } from "./analyse.service.stub";
 
 @NgModule({
-  declarations: [
-    AppComponent
+  declarations: [AppComponent],
+  imports: [BrowserModule, HttpModule, FormsModule],
+  providers: [
+    {
+      provide: AnalyseService,
+      useClass: AnalyseServiceStub
+    }
   ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
