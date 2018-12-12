@@ -55,8 +55,8 @@
           class="keyword"
           *ngFor="let keyword of response.suggestedKeywords"
         >
-          {{ keyword }}
-        </strong>
+          {{ keyword }}</strong
+        >
       </p>
       <p *ngIf="!response.suggestedKeywords.length">No suggestions found</p>
     </div>
