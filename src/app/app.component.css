@@ -41,6 +41,10 @@ h1 {
   text-transform: none;
 }
 
+.response p {
+  line-height: 1.8em;
+}
+
 .responses .keyword {
   margin: 0 5px;
   background-color: yellow;

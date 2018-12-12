@@ -18,7 +18,7 @@ export type HeadlineAnalysisResponse = {
 };
 
 const KEYWORDS_ENDPOINT = "http://localhost:3000/get-headline-keywords";
-const SCORE_ENDPOINT = "";
+const SCORE_ENDPOINT = "https://pink-goat-4.localtunnel.me/";
 
 @Injectable({
   providedIn: "root"
@@ -30,7 +30,12 @@ export class AnalyseServiceImplementation implements AnalyseService {
     input: HeadlineAnalysisRequest
   ): Promise<HeadlineAnalysisResponse> {
     return {
-      score: Math.round(Math.random() * 100),
+      score: Math.round(
+        await this.http
+          .post(SCORE_ENDPOINT, input.content)
+          .toPromise()
+          .then(x => x.json() as number)
+      ),
       suggestedKeywords: await this.http
         .post(KEYWORDS_ENDPOINT, input)
         .toPromise()

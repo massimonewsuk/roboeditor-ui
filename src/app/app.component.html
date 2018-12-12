@@ -6,7 +6,11 @@
         class="robo-editor-man"
         src="/src/assets/robo-editor-animation.png"
       />
-      <img class="orange-dot" src="/src/assets/orange-dot.png" [class.animating]="isAnalysing" />
+      <img
+        class="orange-dot"
+        src="/src/assets/orange-dot.png"
+        [class.animating]="isAnalysing"
+      />
     </div>
     Editor
   </h1>
@@ -50,8 +54,9 @@
         <strong
           class="keyword"
           *ngFor="let keyword of response.suggestedKeywords"
-          >{{ keyword }}</strong
         >
+          {{ keyword }}
+        </strong>
       </p>
       <p *ngIf="!response.suggestedKeywords.length">No suggestions found</p>
     </div>
