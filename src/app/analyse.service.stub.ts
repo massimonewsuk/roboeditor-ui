@@ -7,7 +7,14 @@ import {
   HeadlineAnalysisResponse
 } from "./analyse.service";
 
-const SUGGESTED_KEYWORDS = ["Trump", "May", "Putin", "G20", "MBS", "Khashogghi"];
+const SUGGESTED_KEYWORDS = [
+  "Trump",
+  "May",
+  "Putin",
+  "G20",
+  "MBS",
+  "Khashogghi"
+];
 
 @Injectable({
   providedIn: "root"
@@ -20,9 +27,11 @@ export class AnalyseServiceStub {
   ): Promise<HeadlineAnalysisResponse> {
     await new Promise(x => setTimeout(x, 1000));
     return {
-      score:
+      score: Math.floor(
         50 +
-        SUGGESTED_KEYWORDS.filter(x => contains(input.headline, x)).length * 10,
+          SUGGESTED_KEYWORDS.filter(x => contains(input.headline, x)).length *
+            (Math.random() * 20)
+      ),
       suggestedKeywords: SUGGESTED_KEYWORDS.filter(
         x => contains(input.headline, x) === false
       )
