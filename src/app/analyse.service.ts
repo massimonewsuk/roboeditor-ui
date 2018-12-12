@@ -17,7 +17,7 @@ export type HeadlineAnalysisResponse = {
   suggestedKeywords: string[];
 };
 
-const KEYWORDS_ENDPOINT = "http://localhost:3000/getHeadlineScore";
+const KEYWORDS_ENDPOINT = "http://localhost:3000/get-headline-score";
 const SCORE_ENDPOINT = "";
 
 @Injectable({
