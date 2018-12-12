@@ -7,7 +7,7 @@ import {
   HeadlineAnalysisResponse
 } from "./analyse.service";
 
-const SUGGESTED_KEYWORDS = ["Trump", "May", "Putin", "G20", "MBS"];
+const SUGGESTED_KEYWORDS = ["Trump", "May", "Putin", "G20", "MBS", "Khashogghi"];
 
 @Injectable({
   providedIn: "root"

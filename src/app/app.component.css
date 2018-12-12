@@ -9,6 +9,10 @@ img {
   /* vertical-align: text-bottom; */
 }
 
+.response h3 {
+  text-transform: none;
+}
+
 .responses .keyword {
   margin: 0 5px;
   background-color: yellow;
