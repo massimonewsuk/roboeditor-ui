@@ -3,10 +3,38 @@ h1 {
   font-size: 48px;
 }
 
-img {
-  width: 100px;
+.animation {
   margin: 0 20px;
-  /* vertical-align: text-bottom; */
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  width: 150px;
+  height: 150px;
+}
+
+.animation .robo-editor-man {
+  width: 150px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.animation .orange-dot {
+  position: absolute;
+  animation-name: orange-dot-moving;
+  animation-duration: 0.65s;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  /* animation-play-state: paused; */
+  animation-fill-mode: forwards;
+  top: 42px;
+  width: 27px;
+  left: 101px;
+}
+
+.animation .orange-dot.animating {
+  /* animation-play-state: initial; */
 }
 
 .response h3 {
@@ -19,4 +47,13 @@ img {
   border-radius: 2px;
   padding: 2px 5px;
   color: black;
+}
+
+@keyframes orange-dot-moving {
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(-65px);
+  }
 }

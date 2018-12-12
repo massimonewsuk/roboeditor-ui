@@ -4,7 +4,7 @@ import { FormsModule } from "@angular/forms";
 
 import { AppComponent } from "./app.component";
 import { HttpModule } from "@angular/http";
-import { AnalyseService } from "./analyse.service";
+import { AnalyseService, AnalyseServiceImplementation } from "./analyse.service";
 import { AnalyseServiceStub } from "./analyse.service.stub";
 
 @NgModule({
@@ -13,7 +13,7 @@ import { AnalyseServiceStub } from "./analyse.service.stub";
   providers: [
     {
       provide: AnalyseService,
-      useClass: AnalyseServiceStub
+      useClass: AnalyseServiceImplementation
     }
   ],
   bootstrap: [AppComponent]

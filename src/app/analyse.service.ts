@@ -17,6 +17,9 @@ export type HeadlineAnalysisResponse = {
   suggestedKeywords: string[];
 };
 
+const KEYWORDS_ENDPOINT = "http://localhost:3000/getHeadlineScore";
+const SCORE_ENDPOINT = "";
+
 @Injectable({
   providedIn: "root"
 })
@@ -26,6 +29,12 @@ export class AnalyseServiceImplementation implements AnalyseService {
   async getHeadlineAnalysis(
     input: HeadlineAnalysisRequest
   ): Promise<HeadlineAnalysisResponse> {
-    throw new Error("Not implemented");
+    return {
+      score: Math.round(Math.random() * 100),
+      suggestedKeywords: await this.http
+        .post(KEYWORDS_ENDPOINT, input)
+        .toPromise()
+        .then(x => x.json() as string[])
+    };
   }
 }
