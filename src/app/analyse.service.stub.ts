@@ -4,32 +4,10 @@ import { Http } from "@angular/http";
 
 import {
   HeadlineAnalysisRequest,
-  HeadlineAnalysisResponse,
-  SCORE_ENDPOINT
+  HeadlineAnalysisResponse
 } from "./analyse.service";
 
-const SUGGESTED_KEYWORDS = [
-  "bond",
-  "brexit",
-  "climbing",
-  "deal",
-  "drop",
-  "eu",
-  "government",
-  "jeopardy",
-  "mays",
-  "ministers",
-  "plan",
-  "resign",
-  "resignations",
-  "senior",
-  "stocks",
-  "throw",
-  "turmoil",
-  "uk",
-  "uks",
-  "yields"
-];
+const SUGGESTED_KEYWORDS = ["Trump", "May", "Putin", "G20", "MBS", "Khashogghi"];
 
 @Injectable({
   providedIn: "root"
@@ -42,12 +20,9 @@ export class AnalyseServiceStub {
   ): Promise<HeadlineAnalysisResponse> {
     await new Promise(x => setTimeout(x, 1000));
     return {
-      score: Math.round(
-        await this.http
-          .post(SCORE_ENDPOINT, input.headline)
-          .toPromise()
-          .then(x => x.json() as number)
-      ),
+      score:
+        50 +
+        SUGGESTED_KEYWORDS.filter(x => contains(input.headline, x)).length * 10,
       suggestedKeywords: SUGGESTED_KEYWORDS.filter(
         x => contains(input.headline, x) === false
       )

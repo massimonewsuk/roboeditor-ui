@@ -13,7 +13,7 @@ import { AnalyseServiceStub } from "./analyse.service.stub";
   providers: [
     {
       provide: AnalyseService,
-      useClass: AnalyseServiceImplementation
+      useClass: AnalyseServiceStub
     }
   ],
   bootstrap: [AppComponent]
